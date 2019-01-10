@@ -109,7 +109,7 @@ install:
 #  # this uses git requirements right now
 #  - python -m pip install -r etc/requirements_blaze.txt --cache-dir=%CACHE_DIR%
 #  - python -m pip install -r etc/requirements_talib.txt --cache-dir=%CACHE_DIR%
-  - python -m pip install -e .[all] -c etc/requirements_dev.txt.out --cache-dir=%CACHE_DIR%
+  - python -m pip install -e .[all] -r etc/requirements_blaze.in -c etc/requirements_dev.txt.out --cache-dir=%CACHE_DIR%
   - python -m pip freeze | sort
 
 test_script:
