@@ -29,12 +29,15 @@ def get_benchmark_returns(symbol):
     The data is provided by IEX (https://iextrading.com/), and we can
     get up to 5 years worth of data.
     """
-    r = requests.get(
-        'https://api.iextrading.com/1.0/stock/{}/chart/5y'.format(symbol)
-    )
-    data = r.json()
+    #jz r = requests.get(
+    #jz     'https://api.iextrading.com/1.0/stock/{}/chart/5y'.format(symbol)
+    #jz )
+    #data = r.json()
 
-    df = pd.DataFrame(data)
+    print('jzz','/work/jzhu/input/bmk/' + symbol + '.csv' )
+    #df = pd.DataFrame(data)
+    #test df = pd.read_csv('/work/jzhu/input/bmk/' + symbol + '.csv' ,index_col = 'date', parse_dates = True).sort_index()#jz r.json()
+    df = pd.read_csv('/work/jzhu/input/bmk/' + symbol + '.csv' , parse_dates = True).sort_index()#jz r.json()
 
     df.index = pd.DatetimeIndex(df['date'])
     df = df['close']
